@@ -1,0 +1,20 @@
+Index: app/build.gradle
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>apply plugin: 'com.android.application'\n\nandroid {\n    compileSdk 30\n    defaultConfig {\n        applicationId \"com.codingwithmitch.googlemaps2018\"\n        minSdk 15\n        targetSdk 30\n        versionCode 1\n        versionName \"1.0\"\n        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'\n        multiDexEnabled true\n    }\n    buildTypes {\n        release {\n            minifyEnabled false\n            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'\n        }\n    }\n}\n\ndependencies {\n    implementation fileTree(include: ['*.jar'], dir: 'libs')\n    implementation 'androidx.appcompat:appcompat:1.3.0'\n    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'\n    implementation 'androidx.legacy:legacy-support-v4:1.0.0'\n    testImplementation 'junit:junit:4.12'\n    androidTestImplementation 'androidx.test.ext:junit:1.1.1'\n    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0'\n    //Android Support Design Library\n    implementation 'com.google.android.material:material:1.0.0'\n    //RecyclerView\n    implementation 'androidx.recyclerview:recyclerview:1.0.0'\n    // Support multidex\n    implementation 'androidx.multidex:multidex:2.0.0'\n    // Firebase Core\n    implementation 'com.google.firebase:firebase-core:16.0.1'\n    //Firebase Authentication\n    implementation 'com.google.firebase:firebase-auth:16.0.2'\n    // Firestore Firestore\n    implementation 'com.google.firebase:firebase-firestore:17.0.4'\n\n    // glide\n    implementation 'com.github.bumptech.glide:glide:4.8.0'\n    annotationProcessor 'com.github.bumptech.glide:compiler:4.8.0'\n\n    // Circle ImageView\n    implementation 'de.hdodenhof:circleimageview:2.2.0'\n}\napply plugin: 'com.google.gms.google-services'
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/build.gradle b/app/build.gradle
+--- a/app/build.gradle	(revision 0a19551adbd48903417183f27fb1f3c1cfce4cbf)
++++ b/app/build.gradle	(date 1645428742081)
+@@ -1,5 +1,9 @@
+ apply plugin: 'com.android.application'
+ 
++
++def localProperties = new Properties()
++localProperties.load(new FileInputStream(rootProject.file("local.properties")))
++
+ android {
+     compileSdk 30
+     defaultConfig {
